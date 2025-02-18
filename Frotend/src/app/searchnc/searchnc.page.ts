@@ -26,7 +26,7 @@ export class SearchncPage implements OnInit {
   constructor(private fb: FormBuilder, private productService: ProductService) {
     // Inicializamos el formulario con validaciones
     this.searchForm = this.fb.group({
-      nombre: ['', Validators.required], // Campo obligatorio
+      nombre: ['', ], // Campo obligatorio
       categoria: ['']
     });
     addIcons({ cog, search ,person, mail,create,trash,add,home,close,exit,arrowBack});
@@ -42,7 +42,11 @@ onSubmit() {
 
     // Construir el objeto de filtro dinámico
     const searchData: any = {};
+
+    // Siempre incluir el nombre si está presente
     if (nombre) searchData.nombre = nombre;
+
+    // Siempre incluir la categoría si está presente
     if (categoria) searchData.categoria = categoria;
 
     // Llamamos al servicio para realizar la búsqueda
@@ -59,4 +63,5 @@ onSubmit() {
     console.log('Formulario inválido');
   }
 }
+
 }
