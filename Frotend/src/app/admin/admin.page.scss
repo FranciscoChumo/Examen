@@ -1,0 +1,25 @@
+.card-content {
+  display: flex;
+  justify-content: space-between; /* Distribuye el texto y los botones */
+  align-items: center; /* Alinea verticalmente */
+}
+
+.info-container {
+  flex: 1; /* Permite que el texto ocupe el espacio disponible */
+}
+
+.buttons-container {
+  display: flex;
+  gap: 10px; /* Espacio entre botones */
+}
+
+.small-button {
+  --border-radius: 8px;
+  --padding-start: 8px;
+  --padding-end: 8px;
+}
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}

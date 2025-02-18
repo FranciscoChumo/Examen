@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Registro de local</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="LocForm" (ngSubmit)="onSubmit()">
+   
+      
+    <input formControlName="name" type="text" placeholder="name">
+    <input formControlName="dueño" type="text" placeholder="dueño">
+    <input formControlName="latitud" type="number" placeholder="latitud">
+    <input formControlName="longitud" type="number" placeholder="longitud">
+   
+    <button type="submit">Registrar</button>
+  </form>
+</ion-content>
+
+
+<ion-tab-bar slot="bottom" >
+  <ion-tab-button  >
+    <ion-icon name="arrow-back" routerLink="/iproduct"></ion-icon>
+    <ion-label>Regresar</ion-label>
+  </ion-tab-button>
+  <ion-tab-button routerLink="/searchnc" >
+    <ion-icon name="search"></ion-icon>
+      <ion-label>Buscar  </ion-label>
+    </ion-tab-button>
+
+ 
+</ion-tab-bar>

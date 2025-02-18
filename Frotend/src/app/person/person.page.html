@@ -1,0 +1,68 @@
+
+<ion-content *ngIf="profile?.user?.person">
+  <ion-list>
+    <br class="avatar-upload">
+      <div class="avatar-preview">
+        <ion-avatar slot="start">
+          <img
+          src="http://localhost:3000/uploads/personas/{{ profile.user.person.photo }}" alt="Profile"/>
+        </ion-avatar>
+      </div><br>
+      <input type="file" #fileInput (change)="changeImage($event)" accept="image/*" hidden>
+
+
+  
+
+    <ion-item>
+      <ion-label position="stacked">Name</ion-label>
+      <ion-input [disabled]="edit" [value]="profile.user.person.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Lastname</ion-label>
+      <ion-input [disabled]="edit" [value]="profile.user.person.lastname"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">CI</ion-label>
+      <ion-input [disabled]="edit" [value]="profile.user.person.ci"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Address</ion-label>
+      <ion-input [disabled]="edit" [value]="profile.user.person.address"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Phone</ion-label>
+      <ion-input [disabled]="edit" [value]="profile.user.person.phone"></ion-input>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-tab-bar slot="bottom" >
+  <ion-tab-button  >
+    <ion-icon name="arrow-back" routerLink="/admin"></ion-icon>
+    <ion-label>Regresar</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button >
+  <ion-icon name="create" routerLink='/edituser'></ion-icon>
+    <ion-label>Editar User</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button  >
+    <ion-icon name="camera" (click)="triggerFileInput()"></ion-icon>
+      <ion-label>Editar Foto</ion-label>
+    </ion-tab-button>
+
+  <ion-tab-button routerLink='/person' id="open-loading">
+    <ion-icon name="person" ></ion-icon>
+    <ion-label>{{ users }}</ion-label>
+  </ion-tab-button>
+
+  
+</ion-tab-bar>
+
+
+

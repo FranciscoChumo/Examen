@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>searchnc</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Buscar Producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Datos de búsqueda</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <!-- Campo de nombre -->
+        <ion-item>
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input formControlName="nombre"></ion-input>
+        </ion-item>
+
+        <!-- Campo de categoría -->
+        <ion-item>
+          <ion-label position="floating">Categoría</ion-label>
+          <ion-input formControlName="categoria"></ion-input>
+        </ion-item>
+
+        <!-- Botón de envío -->
+        <ion-button expand="full" type="submit">Buscar</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </form>
+
+  <!-- Mostrar los resultados de la búsqueda -->
+  <ion-card *ngIf="products.length > 0">
+    <ion-card-header>
+      <ion-card-title>Resultados</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let product of products">
+          <ion-label>
+            <h2>{{ product.nombre }}</h2>
+            <p>{{ product.categoria }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-tab-bar slot="bottom" >
+  <ion-tab-button  >
+    <ion-icon name="arrow-back" routerLink="/iproduct"></ion-icon>
+    <ion-label>Regresar</ion-label>
+  </ion-tab-button>
+
+</ion-tab-bar>
